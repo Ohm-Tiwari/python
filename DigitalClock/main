@@ -1,0 +1,30 @@
+# creates a digital clock 6-14-21
+
+# imports module
+from tkinter import *
+from tkinter.ttk import *
+
+
+# retrieves system time
+from time import strftime
+
+# creates window
+root = Tk()
+root.title('Clock')
+
+# displays time
+def time():
+    string = strftime('%H:%M:%S%p')
+    lbl.config(text = string)
+    lbl.after(1000, time)
+
+# designs the widget
+lbl = Label(root, font = ('MS Gothic', 25, 'bold italic'),
+                                    background = '#5F07FA',
+                                    foreground = 'white')
+
+# places clock
+lbl.pack(anchor = 'center')
+time()
+
+mainloop()
